@@ -1,0 +1,92 @@
+{
+  "bio": {
+    "name": "Suryateja.R",
+    "title": "Full Stack Developer & Software Engineer",
+    "description": "I’m a passionate Software Engineer and Full Stack Developer who enjoys building modern, scalable, and user-focused applications. I love turning ideas into real-world solutions through clean code, thoughtful design, and efficient systems. From crafting engaging frontend experiences to developing robust backend architectures, I focus on creating products that are both functional and impactful. I’m constantly learning, building, and pushing myself to grow in the ever-evolving world of technology.",
+    "location": "Hyderabad",
+    "avatar": "https://avatars.githubusercontent.com/u/178885063?v=4",
+    "resume_url": "https://github.com/suryateja021/resume",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/suryateja021",
+      "leetcode": "https://leetcode.com/u/suryateja021/",
+      "github": "https://github.com/suryateja021"
+    }
+  },
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science",
+      "institution": "CMR Engineering College",
+      "duration": "2023 – 2027",
+      "score": "Current"
+    },
+    {
+      "degree": "Intermediate (MPC)",
+      "institution": "Narayana Junior College",
+      "duration": "2023",
+      "score": "85%"
+    },
+    {
+      "degree": "SSC",
+      "institution": "Vijetha High School",
+      "duration": "2020",
+      "score": "100%"
+    }
+  ],
+  "skills": {
+    "Programming": ["Python", "Java", "OOPS"],
+    "Web Development": ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    "CS Fundamentals": ["Data Structures", "DBMS", "SQL", "Operating Systems"],
+    "Cybersecurity": ["Networking", "InfoSec", "Threat Awareness"],
+    "Tools": ["Git", "GitHub", "VS Code", "Linux"]
+  },
+  "certifications": [
+    {
+      "name": "Introduction to Cybersecurity",
+      "issuer": "Cisco"
+    },
+    {
+      "name": "Modern AI",
+      "issuer": "Cisco"
+    },
+    {
+      "name": "Agentforce Certification",
+      "issuer": "Salesforce"
+    },
+    {
+      "name": "Basics of Python",
+      "issuer": "Infosys Springboard"
+    },
+    {
+      "name": "Full Stack Development",
+      "issuer": "Infosys Springboard"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Gender Prediction Using Sound",
+      "description": "AI-based voice recognition system to predict gender from audio samples.",
+      "tech": ["Python", "AI", "Audio Processing"],
+      "image": "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "title": "Minimal IP Geolocation Tracker",
+      "description": "Web application for network and geographical data visualization using IP addresses.",
+      "tech": ["HTML", "CSS", "JS", "API"],
+      "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "title": "ML-Based Sentiment Analysis",
+      "description": "Machine learning project focused on analyzing sentiment in English literature.",
+      "tech": ["Python", "ML", "NLP"],
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600"
+    }
+  ],
+  "updates": [
+    {
+      "id": 1,
+      "date": "2026-04-28",
+      "content": "Expanded portfolio with education, skills, and certifications! 🎓",
+      "type": "work"
+    }
+  ]
+}

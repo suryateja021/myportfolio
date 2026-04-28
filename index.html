@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya | Creative Developer Portfolio</title>
+    <meta name="description" content="Personal portfolio of Surya, a creative developer specializing in modern web technologies and futuristic UI design.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">S<span class="gradient-text">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certificates</a></li>
+                <li><a href="#updates">Updates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 style="letter-spacing: 0.2em; text-transform: uppercase;">Suryateja.R<span class="gradient-text">.</span></h1>
+                    <p id="hero-title" style="letter-spacing: 0.1em; text-transform: uppercase; font-weight: 300;"></p>
+                    <div id="social-links" style="margin: 2rem 0; display: flex; gap: 1.5rem; justify-content: center;">
+                        <!-- Social links will be injected here -->
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <a href="#projects" class="btn-primary">View Projects</a>
+                        <a id="resume-link" href="#" target="_blank" class="btn-primary" style="background: transparent; border: 1px solid var(--primary-accent);">Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="gradient-text">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img id="avatar" src="" alt="Profile Picture">
+                    </div>
+                    <div class="about-text">
+                        <p id="bio-description"></p>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">
+                            Based in <span id="location"></span>, I focus on building interfaces that are not only functional but also visually striking. I believe the future of the web is immersive and interactive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="gradient-text">Technical Skills</h2>
+                <div class="skills-grid" id="skills-container">
+                    <!-- Skills will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2 class="gradient-text">Education</h2>
+                <div class="education-list" id="education-container">
+                    <!-- Education will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="gradient-text">Selected Projects</h2>
+                <div class="projects-grid" id="projects-container">
+                    <!-- Projects will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <div class="container">
+                <h2 class="gradient-text">Certifications</h2>
+                <div class="certs-grid" id="certs-container">
+                    <!-- Certifications will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="updates">
+            <div class="container">
+                <h2 class="gradient-text">Daily Activity</h2>
+                <div class="updates-list" id="updates-container">
+                    <!-- Updates will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-container">
+                    <h2 class="gradient-text" style="text-align: center;">Get In Touch</h2>
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                        Have a project in mind? Let's build something amazing together.
+                    </p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 4rem 0; color: var(--text-secondary);">
+            <p>&copy; 2026 Surya. Built with Amethyst energy.</p>
+        </div>
+    </footer>
+
+    <!-- Admin Panel -->
+    <button id="admin-btn" title="Admin Login">A</button>
+    <div id="admin-panel">
+        <h3>Post Update</h3>
+        <div class="form-group">
+            <input type="password" id="admin-pass" placeholder="Admin Password">
+        </div>
+        <div id="admin-actions" style="display: none;">
+            <div class="form-group">
+                <textarea id="update-content" placeholder="What's new?"></textarea>
+            </div>
+            <button id="post-update-btn" class="btn-primary" style="width: 100%;">Post Update</button>
+        </div>
+        <button id="close-admin" style="background: none; border: none; color: var(--text-secondary); margin-top: 1rem; cursor: pointer;">Close</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
