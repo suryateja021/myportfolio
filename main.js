@@ -20,8 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Social Links
         const socialContainer = document.getElementById('social-links');
         if (data.bio.social) {
+            const icons = {
+                github: 'fa-github',
+                linkedin: 'fa-linkedin',
+                leetcode: 'fa-code',
+                twitter: 'fa-twitter'
+            };
             socialContainer.innerHTML = Object.entries(data.bio.social).map(([platform, url]) => `
-                <a href="${url}" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">${platform}</a>
+                <a href="${url}" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 1.5rem; transition: color 0.3s ease;">
+                    <i class="fab ${icons[platform] || 'fa-link'}"></i>
+                </a>
             `).join('');
         }
 
@@ -128,6 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = originalText;
             contactForm.reset();
         }, 1500);
+    });
+
+    // Scroll to Top Logic
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Admin Logic
