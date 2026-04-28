@@ -4,6 +4,8 @@
     "title": "Full Stack Developer & Software Engineer",
     "description": "I’m a passionate Software Engineer and Full Stack Developer who enjoys building modern, scalable, and user-focused applications. I love turning ideas into real-world solutions through clean code, thoughtful design, and efficient systems. From crafting engaging frontend experiences to developing robust backend architectures, I focus on creating products that are both functional and impactful. I’m constantly learning, building, and pushing myself to grow in the ever-evolving world of technology.",
     "location": "Hyderabad",
+    "email": "suryatejaofficial@gmail.com",
+    "phone": "+91-9492004002",
     "avatar": "https://avatars.githubusercontent.com/u/178885063?v=4",
     "resume_url": "https://github.com/suryateja021/resume",
     "social": {
@@ -39,6 +41,24 @@
     "Cybersecurity": ["Networking", "InfoSec", "Threat Awareness"],
     "Tools": ["Git", "GitHub", "VS Code", "Linux"]
   },
+  "personal_skills": [
+    "Analytical Thinking",
+    "Communication",
+    "Quick Learner",
+    "Team Collaboration",
+    "Time Management",
+    "Leadership"
+  ],
+  "activities": [
+    "Technical Workshops on AI & Cybersecurity",
+    "Regular coding practice",
+    "Online technical learning"
+  ],
+  "hobbies": [
+    "Exploring AI Tools",
+    "Chess",
+    "Emerging Tech Trends"
+  ],
   "certifications": [
     {
       "name": "Introduction to Cybersecurity",
@@ -81,11 +101,33 @@
       "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600"
     }
   ],
+  "all_repos": [
+    {
+      "name": "myportfolio",
+      "description": "A fully responsive portfolio website highlighting my projects, skills, and development journey.",
+      "url": "https://github.com/suryateja021/myportfolio"
+    },
+    {
+      "name": "resume",
+      "description": "Professional resume built with TeX for high-quality typography.",
+      "url": "https://github.com/suryateja021/resume"
+    },
+    {
+      "name": "example",
+      "description": "Experimental features and web development concepts.",
+      "url": "https://github.com/suryateja021/example"
+    },
+    {
+      "name": "suryateja021",
+      "description": "Special repository for GitHub profile customization.",
+      "url": "https://github.com/suryateja021/suryateja021"
+    }
+  ],
   "updates": [
     {
       "id": 1,
       "date": "2026-04-28",
-      "content": "Expanded portfolio with education, skills, and certifications! 🎓",
+      "content": "Full resume data integrated! Highlights added. 🚀",
       "type": "work"
     }
   ]

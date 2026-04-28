@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('avatar').src = data.bio.avatar;
         document.getElementById('bio-description').textContent = data.bio.description;
         document.getElementById('location').textContent = data.bio.location;
+        document.getElementById('email').textContent = data.bio.email;
+        document.getElementById('phone').textContent = data.bio.phone;
         document.getElementById('resume-link').href = data.bio.resume_url;
 
         // Render Social Links
@@ -69,6 +71,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>${cert.name}</h3>
                 <span class="cert-issuer">${cert.issuer}</span>
             </div>
+        `).join('');
+
+        // Render Repositories
+        const reposContainer = document.getElementById('repos-container');
+        reposContainer.innerHTML = data.all_repos.map(repo => `
+            <div class="repo-card">
+                <div>
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description}</p>
+                </div>
+                <a href="${repo.url}" target="_blank" class="repo-link">View Repo →</a>
+            </div>
+        `).join('');
+
+        // Render Highlights
+        document.getElementById('personal-skills-container').innerHTML = data.personal_skills.map(skill => `
+            <li class="tech-tag">${skill}</li>
+        `).join('');
+
+        document.getElementById('activities-container').innerHTML = data.activities.map(act => `
+            <li>${act}</li>
+        `).join('');
+
+        document.getElementById('hobbies-container').innerHTML = data.hobbies.map(hobby => `
+            <li>${hobby}</li>
         `).join('');
 
         // Render Updates
