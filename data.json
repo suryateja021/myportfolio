@@ -7,7 +7,7 @@
     "email": "suryatejaofficial@gmail.com",
     "phone": "+91-9492004002",
     "avatar": "https://avatars.githubusercontent.com/u/178885063?v=4",
-    "resume_url": "https://github.com/suryateja021/resume",
+    "resume_url": "https://github.com/suryateja021/resume/blob/main/resume%20(1).pdf",
     "social": {
       "linkedin": "https://www.linkedin.com/in/suryateja021",
       "leetcode": "https://leetcode.com/u/suryateja021/",
@@ -62,23 +62,28 @@
   "certifications": [
     {
       "name": "Introduction to Cybersecurity",
-      "issuer": "Cisco"
+      "issuer": "Cisco",
+      "url": "https://github.com/suryateja021/resume/blob/main/certificates/cybersecurity.pdf"
     },
     {
       "name": "Modern AI",
-      "issuer": "Cisco"
+      "issuer": "Cisco",
+      "url": "https://github.com/suryateja021/resume/blob/main/certificates/modern_ai.pdf"
     },
     {
       "name": "Agentforce Certification",
-      "issuer": "Salesforce"
+      "issuer": "Salesforce",
+      "url": "https://github.com/suryateja021/resume/blob/main/certificates/salesforce.pdf"
     },
     {
       "name": "Basics of Python",
-      "issuer": "Infosys Springboard"
+      "issuer": "Infosys Springboard",
+      "url": "https://github.com/suryateja021/resume/blob/main/certificates/python.pdf"
     },
     {
       "name": "Full Stack Development",
-      "issuer": "Infosys Springboard"
+      "issuer": "Infosys Springboard",
+      "url": "https://github.com/suryateja021/resume/blob/main/certificates/fullstack.pdf"
     }
   ],
   "projects": [

@@ -384,6 +384,18 @@ nav .container {
   color: var(--text-secondary);
   text-transform: uppercase;
 }
+
+.cert-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cert-card:hover {
+  border-color: var(--primary-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+}
 .updates-list {
   display: flex;
   flex-direction: column;
@@ -486,4 +498,34 @@ input:focus, textarea:focus {
   .hero-content h1 { font-size: 3rem; }
   .about-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+}
+/* Admin Controls in Updates */
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-controls button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  padding: 5px;
+}
+
+.admin-controls .edit-btn:hover {
+  color: var(--primary-accent);
+}
+
+.admin-controls .delete-btn:hover {
+  color: #ff4444;
 }

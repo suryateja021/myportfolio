@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Global state
+    window.isAdminLoggedIn = false;
+    window.editingUpdateId = null;
+
     // Fetch data and initialize
+    let portfolioData = null;
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
+            portfolioData = data;
             renderPortfolio(data);
             initAdmin(data);
         });
@@ -75,10 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Certifications
         const certsContainer = document.getElementById('certs-container');
         certsContainer.innerHTML = data.certifications.map(cert => `
-            <div class="cert-card">
-                <h3>${cert.name}</h3>
-                <span class="cert-issuer">${cert.issuer}</span>
-            </div>
+            <a href="${cert.url}" target="_blank" class="cert-link">
+                <div class="cert-card">
+                    <h3>${cert.name}</h3>
+                    <span class="cert-issuer">${cert.issuer}</span>
+                </div>
+            </a>
         `).join('');
 
         // Render Repositories
@@ -113,15 +121,63 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderUpdates(updates) {
         const updatesContainer = document.getElementById('updates-container');
         const localUpdates = JSON.parse(localStorage.getItem('portfolio_updates') || '[]');
-        const allUpdates = [...localUpdates, ...updates].sort((a, b) => new Date(b.date) - new Date(a.date));
+        const deletedIds = JSON.parse(localStorage.getItem('portfolio_deleted_ids') || '[]');
+        
+        // Filter out deleted static updates
+        const filteredStatic = updates.filter(u => !deletedIds.includes(u.id));
+        
+        const allUpdates = [...localUpdates, ...filteredStatic].sort((a, b) => new Date(b.date) - new Date(a.date));
 
         updatesContainer.innerHTML = allUpdates.map(update => `
-            <div class="update-item">
-                <span class="update-date">${new Date(update.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <div class="update-item" data-id="${update.id}">
+                <div class="update-header">
+                    <span class="update-date">${new Date(update.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    ${window.isAdminLoggedIn ? `
+                        <div class="admin-controls">
+                            <button class="edit-btn" onclick="window.editUpdate(${update.id})" title="Edit Update"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn" onclick="window.deleteUpdate(${update.id})" title="Delete Update"><i class="fas fa-trash"></i></button>
+                        </div>
+                    ` : ''}
+                </div>
                 <p>${update.content}</p>
             </div>
         `).join('');
     }
+
+    // Admin Action Globals
+    window.deleteUpdate = (id) => {
+        if (!confirm('Are you sure you want to delete this update?')) return;
+        
+        let localUpdates = JSON.parse(localStorage.getItem('portfolio_updates') || '[]');
+        const index = localUpdates.findIndex(u => u.id === id);
+        
+        if (index !== -1) {
+            localUpdates.splice(index, 1);
+            localStorage.setItem('portfolio_updates', JSON.stringify(localUpdates));
+        } else {
+            let deletedIds = JSON.parse(localStorage.getItem('portfolio_deleted_ids') || '[]');
+            if (!deletedIds.includes(id)) {
+                deletedIds.push(id);
+                localStorage.setItem('portfolio_deleted_ids', JSON.stringify(deletedIds));
+            }
+        }
+        renderUpdates(portfolioData.updates);
+    };
+
+    window.editUpdate = (id) => {
+        const localUpdates = JSON.parse(localStorage.getItem('portfolio_updates') || '[]');
+        const allUpdates = [...localUpdates, ...portfolioData.updates];
+        const update = allUpdates.find(u => u.id === id);
+        
+        if (update) {
+            window.editingUpdateId = id;
+            document.getElementById('admin-panel').style.display = 'block';
+            document.getElementById('admin-actions').style.display = 'block';
+            document.getElementById('admin-pass').style.display = 'none';
+            document.getElementById('update-content').value = update.content;
+            document.getElementById('post-update-btn').textContent = 'Update Activity';
+        }
+    };
 
     // Contact Form
     const contactForm = document.getElementById('contact-form');
@@ -164,16 +220,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         adminBtn.addEventListener('click', () => {
             adminPanel.style.display = 'block';
+            if (window.isAdminLoggedIn) {
+                adminActions.style.display = 'block';
+                adminPass.style.display = 'none';
+            }
         });
 
         closeAdmin.addEventListener('click', () => {
             adminPanel.style.display = 'none';
+            window.editingUpdateId = null;
+            postUpdateBtn.textContent = 'Post Update';
+            updateContent.value = '';
         });
 
         adminPass.addEventListener('input', (e) => {
-            if (e.target.value === 'admin123') {
+            if (e.target.value === 'adminsurya') {
+                window.isAdminLoggedIn = true;
                 adminActions.style.display = 'block';
                 adminPass.style.display = 'none';
+                renderUpdates(data.updates);
             }
         });
 
@@ -181,23 +246,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = updateContent.value;
             if (!content) return;
 
-            const newUpdate = {
-                id: Date.now(),
-                date: new Date().toISOString().split('T')[0],
-                content: content,
-                type: 'work'
-            };
+            let localUpdates = JSON.parse(localStorage.getItem('portfolio_updates') || '[]');
 
-            const localUpdates = JSON.parse(localStorage.getItem('portfolio_updates') || '[]');
-            localUpdates.unshift(newUpdate);
-            localStorage.setItem('portfolio_updates', JSON.stringify(localUpdates));
+            if (window.editingUpdateId) {
+                const index = localUpdates.findIndex(u => u.id === window.editingUpdateId);
+                if (index !== -1) {
+                    localUpdates[index].content = content;
+                    localStorage.setItem('portfolio_updates', JSON.stringify(localUpdates));
+                } else {
+                    // Editing a static update
+                    const newUpdate = {
+                        id: window.editingUpdateId,
+                        date: new Date().toISOString().split('T')[0],
+                        content: content,
+                        type: 'work'
+                    };
+                    localUpdates.unshift(newUpdate);
+                    localStorage.setItem('portfolio_updates', JSON.stringify(localUpdates));
+                    
+                    let deletedIds = JSON.parse(localStorage.getItem('portfolio_deleted_ids') || '[]');
+                    deletedIds.push(window.editingUpdateId);
+                    localStorage.setItem('portfolio_deleted_ids', JSON.stringify(deletedIds));
+                }
+                window.editingUpdateId = null;
+                postUpdateBtn.textContent = 'Post Update';
+            } else {
+                const newUpdate = {
+                    id: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    content: content,
+                    type: 'work'
+                };
+                localUpdates.unshift(newUpdate);
+                localStorage.setItem('portfolio_updates', JSON.stringify(localUpdates));
+            }
 
             renderUpdates(data.updates);
             updateContent.value = '';
             adminPanel.style.display = 'none';
-            adminActions.style.display = 'none';
-            adminPass.style.display = 'block';
-            adminPass.value = '';
         });
     }
 });
