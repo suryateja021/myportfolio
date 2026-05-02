@@ -1,25 +1,53 @@
-# Premium Personal Portfolio - Suryateja.R
+# 🚀 Surya Teja
 
-A futuristic, high-performance personal portfolio built with a cinematic theme, dynamic data integration, and professional aesthetics.
+Frontend Developer focused on building clean, responsive, and user-friendly web interfaces.
 
-## Features
-- **Cinematic Theme**: Inspired by modern cinematic visuals with high-contrast, dark aesthetics.
-- **Dynamic Content**: Bio, projects, skills, and education are powered by `data.json`.
-- **Daily Activity**: Local updates system with an admin panel.
-- **Responsive Design**: Fully optimized for all screen sizes.
-- **Project Showcase**: Real-time project data extracted from GitHub.
+---
 
-## Tech Stack
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Data**: JSON
-- **Assets**: AI-generated cinematic backgrounds
+## 🌐 Live Portfolio
 
-## Installation
-Simply clone the repository and open `index.html` in your browser, or serve it using a local server.
+🔗 https://suryateja021-myportfolio.vercel.app/
 
-```bash
-npx serve .
-```
+---
 
-## License
-MIT License
+## 🧩 About This Project
+
+This portfolio is a representation of my work and learning journey in frontend development.
+It highlights my approach to creating structured, responsive, and interactive web applications with a focus on usability and performance.
+
+---
+
+## ⚙️ Tech Stack
+
+HTML • CSS • JavaScript
+Git • GitHub • VS Code
+
+---
+
+## 🚀 What I Focus On
+
+* Building responsive and accessible UI
+* Writing clean and maintainable code
+* Creating smooth user experiences
+* Continuously improving with real-world projects
+
+---
+
+## 📌 Project Highlights
+
+* Personal portfolio website
+* Responsive design across devices
+* Clean layout and structured components
+* Ongoing updates and improvements
+
+---
+
+## 📬 Connect
+
+📧 [suryatejaofficial@gmail.com](mailto:suryatejaofficial@gmail.com)
+🔗 https://linkedin.com/in/suryateja021
+💻 https://github.com/suryateja021
+
+---
+
+⭐ Feel free to explore the project and share your feedback!
