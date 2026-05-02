@@ -181,17 +181,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact Form
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = contactForm.querySelector('button');
         const originalText = btn.textContent;
         btn.textContent = 'Sending...';
         
-        setTimeout(() => {
-            alert('Thank you! Your message has been sent successfully.');
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Thank you! Your message has been sent successfully.');
+                contactForm.reset();
+            } else {
+                alert('Oops! There was a problem sending your message. Please try again.');
+            }
+        } catch (error) {
+            alert('Oops! There was a problem sending your message. Please try again.');
+        } finally {
             btn.textContent = originalText;
-            contactForm.reset();
-        }, 1500);
+        }
     });
 
     // Scroll to Top Logic
